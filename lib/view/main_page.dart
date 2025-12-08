@@ -54,7 +54,7 @@ class _MainScreenState extends State<MainScreen> {
           IconButton(
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const SerachPage()));
+                    MaterialPageRoute(builder: (context) => const SearchCharacterPage()));
               },
               icon: const Icon(
                 Icons.search,
