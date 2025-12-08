@@ -13,6 +13,5 @@ class LocationModel {
       required this.dimension,
       required this.residents,
       required this.url,
-      required this.created
-      });
+      required this.created});
 }
