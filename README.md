@@ -1,16 +1,32 @@
 # rick_and_morty_app
 
-A new Flutter project.
+📱 ##Rick and Morty API Testing App
 
-## Getting Started
+####A Flutter application built for testing and exploring the Rick and Morty API.
 
-This project is a starting point for a Flutter application.
+✅ ##Implemented Features
 
-A few resources to get you started if this is your first Flutter project:
+📄 ###Pagination support for the main list of characters
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+🔍 ###Search by character name
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+🔗 ###Deep navigation flow:
+####Characters list → Character info → Episode info
+
+🌐 ###Network outage handling (retry requests once the network is restored)
+
+⏳ ###Loading state handling across all data-fetching operations
+
+🛠️ ##Core Technologies & Architecture
+
+###State Management: flutter_bloc
+####(A powerful reactive state-management library built on top of Provider)
+
+###Architecture Pattern: MVVM
+####(Clean separation between UI, logic, and data layers)
+
+###HTTP Client: dio
+####(Efficient networking, interceptors, error handling)
+
+###Service Locator: get_it
+####(Used for dependency injection and singletons)
