@@ -30,3 +30,6 @@
 
 #### - Service Locator: get_it
 ##### (Used for dependency injection and singletons)
+
+## I highly recommend it to everyone and thank you for the opportunity.
+### https://rickandmortyapi.com/
