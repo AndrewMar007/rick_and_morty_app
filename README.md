@@ -6,27 +6,27 @@
 
 ## ✅ Implemented Features
 
-### 📄 Pagination support for the main list of characters
+#### 📄 Pagination support for the main list of characters
 
-### 🔍 Search by character name
+#### 🔍 Search by character name
 
-### 🔗 Deep navigation flow:
-#### Characters list → Character info → Episode info
+#### 🔗 Deep navigation flow:
+##### Characters list → Character info → Episode info
 
-### 🌐 Network outage handling (retry requests once the network is restored)
+#### 🌐 Network outage handling (retry requests once the network is restored)
 
-### ⏳ Loading state handling across all data-fetching operations
+#### ⏳ Loading state handling across all data-fetching operations
 
 ## 🛠️ Core Technologies & Architecture
 
-### State Management: flutter_bloc
-#### (A powerful reactive state-management library built on top of Provider)
+#### - State Management: flutter_bloc
+##### (A powerful reactive state-management library built on top of Provider)
 
-### Architecture Pattern: MVVM
-#### (Clean separation between UI, logic, and data layers)
+#### - Architecture Pattern: MVVM
+##### (Clean separation between UI, logic, and data layers)
 
-### HTTP Client: dio
-#### (Efficient networking, interceptors, error handling)
+#### - HTTP Client: dio
+##### (Efficient networking, interceptors, error handling)
 
-### Service Locator: get_it
-#### (Used for dependency injection and singletons)
+#### - Service Locator: get_it
+##### (Used for dependency injection and singletons)
