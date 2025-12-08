@@ -4,10 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rick_and_morty_app/model/episode_model.dart';
 import 'package:rick_and_morty_app/view/bloc/episode_bloc/episodes_bloc.dart';
 import 'package:rick_and_morty_app/view/bloc/episode_bloc/episodes_bloc_event.dart';
-import 'package:rick_and_morty_app/view/episode_infromation_page.dart';
+import 'package:rick_and_morty_app/view/pages/episode_infromation_page.dart';
 
-import '../model/character_model.dart';
-import 'bloc/episode_bloc/episodes_bloc_state.dart';
+import '../../model/character_model.dart';
+import '../bloc/episode_bloc/episodes_bloc_state.dart';
 
 class CharacterInformationPage extends StatefulWidget {
   final CharacterModel model;

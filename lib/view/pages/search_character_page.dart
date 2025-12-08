@@ -3,11 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rick_and_morty_app/view/bloc/character_bloc/character_bloc_event.dart';
 import 'package:rick_and_morty_app/view/bloc/character_bloc/character_bloc_state.dart';
-import 'package:rick_and_morty_app/view/character_information_page.dart';
+import 'package:rick_and_morty_app/view/pages/character_information_page.dart';
 import 'package:rick_and_morty_app/view/widgets/custom_text_field.dart';
 
-import 'bloc/character_bloc/character_bloc.dart';
-import 'widgets/card_widget.dart';
+import '../bloc/character_bloc/character_bloc.dart';
+import '../widgets/card_widget.dart';
 
 class SearchCharacterPage extends StatefulWidget {
   const SearchCharacterPage({super.key});

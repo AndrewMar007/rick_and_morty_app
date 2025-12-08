@@ -6,7 +6,7 @@ import 'package:rick_and_morty_app/view/bloc/character_bloc/character_bloc.dart'
 import 'package:rick_and_morty_app/view/bloc/character_bloc/character_bloc_event.dart';
 import 'package:rick_and_morty_app/view/bloc/character_bloc/character_bloc_state.dart';
 
-import '../model/character_model.dart';
+import '../../model/character_model.dart';
 
 class EpisodeInformationPage extends StatefulWidget {
   final EpisodeModel model;
