@@ -32,20 +32,20 @@
 ## 🧩 Architecture Overview
 ### MVVM + BloC
 lib/
- ├─ core/
- │   ├─ exceptions/
- │   └─ network/
- ├─ model/
- ├─ services/
- │   ├─ episode_service/
- │   └─ character_servivce/
- ├─ view/
- │   ├─ bloc/
- │   ├─ pages/
- │   └─ widgets/
- ├─ view_model/
- │   ├─ character_view_model/
- └─  └─ episodes_view_model/
+├─ core/
+│  ├─ exceptions/
+│  └─ network/
+├─ model/
+├─ services/
+│  ├─ episode_service/
+│  └─ character_service/
+├─ view/
+│  ├─ bloc/
+│  ├─ pages/
+│  └─ widgets/
+└─ view_model/
+   ├─ character_view_model/
+   └─ episodes_view_model/
 
 #### View — Flutter UI widgets
 #### ViewModel — communicates with services, prepares data
