@@ -4,6 +4,12 @@
 
 #### A Flutter application built for testing and exploring the Rick and Morty API.
 
+![Characters list](screenshots/main.png)
+![Search Character Page](screenshots/search.png)
+![Character Info Page](screenshots/character.png)
+![Epsiode Info Page](screenshots/episode.png)
+
+
 ## ✅ Implemented Features
 
 #### 📄 Pagination support for the main list of characters
@@ -16,6 +22,29 @@
 #### 🌐 Network outage handling (retry requests once the network is restored)
 
 #### ⏳ Loading state handling across all data-fetching operations
+
+## 🧩 Architecture Overview
+### MVVM + BloC
+lib/
+ ├─ core/
+ │   ├─ exceptions/
+ │   └─ network/
+ ├─ model/
+ ├─ services/
+ │   ├─ episode_service/
+ │   └─ character_servivce/
+ ├─ view/
+ │   ├─ bloc/
+ │   ├─ pages/
+ │   └─ widgets/
+ ├─ view_model/
+ │   ├─ character_view_model/
+ └─  └─ episodes_view_model/
+
+#### View — Flutter UI widgets
+#### ViewModel — communicates with services, prepares data
+#### BLoC — state machine that exposes states to the UI
+#### Service layer — API calls using dio
 
 ## 🛠️ Core Technologies & Architecture
 
