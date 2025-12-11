@@ -8,8 +8,8 @@
   
   <img src="screenshots/main.png" height="400">
   <img src="screenshots/search.png" height="400">
-  <img src="screenshots/character.png" width="400">
-  <img src="screenshots/episode.png" width="400">
+  <img src="screenshots/character.png" height="400">
+  <img src="screenshots/episode.png" height="400">
 </p>
 
 <!-- <div style="display: flex; justify-content: center; gap: 30px;">
