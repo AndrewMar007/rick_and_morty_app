@@ -31,6 +31,8 @@
 
 ## 🧩 Architecture Overview
 ### MVVM + BloC
+
+```text
 lib/
 ├─ core/
 │  ├─ exceptions/
@@ -46,6 +48,7 @@ lib/
 └─ view_model/
    ├─ character_view_model/
    └─ episodes_view_model/
+```
 
 #### View — Flutter UI widgets
 #### ViewModel — communicates with services, prepares data
