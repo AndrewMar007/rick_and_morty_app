@@ -3,12 +3,12 @@
 ## 📱 Rick and Morty API Testing App
 
 #### A Flutter application built for testing and exploring the Rick and Morty API.
-
-![Characters list](screenshots/main.png)
-![Search Character Page](screenshots/search.png)
-![Character Info Page](screenshots/character.png)
-![Epsiode Info Page](screenshots/episode.png)
-
+<p float="left">
+  <img src="screenshots/main.png" width="300">
+  <img src="screenshots/search.png" width="300">
+  <img src="screenshots/character.png" width="300">
+  <img src="screenshots/episode.png" width="300">
+</p>
 
 ## ✅ Implemented Features
 
