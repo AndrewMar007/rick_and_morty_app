@@ -6,18 +6,18 @@
 
 <p align="center">
   
-  <div style="display: flex; justify-content: center; gap: 30px;">
+  <div style="display: flex; justify-content: center;">
     <div style="text-align: center;">
       <p>Main</p>
-      <img src="screenshots/main.png" height="400" style="margin-right: 20px;">
+      <img src="screenshots/main.png" height="400"">
     </div>
     <div style="text-align: center;">
       <p>Search</p>
-      <img src="screenshots/search.png" height="400" style="margin-right: 20px;">
+      <img src="screenshots/search.png" height="400"">
     </div>
     <div style="text-align: center;">
       <p>Character</p>
-      <img src="screenshots/character.png" height="400" style="margin-right: 20px;">
+      <img src="screenshots/character.png" height="400"">
     </div>
     <div style="text-align: center;">
       <p>Episode</p>
