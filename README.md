@@ -58,15 +58,24 @@ lib/
 ## 🛠️ Core Technologies & Architecture
 
 #### - State Management: flutter_bloc
+##### It is used to transfer data from the ViewModel to the View.
+###### Several classes were created for this purpose, each responsible for one of the main functions (fetching the list of characters, searching for a character, retrieving character information, and retrieving the episode in which the character appears)
 ##### (A powerful reactive state-management library built on top of Provider)
 
 #### - Architecture Pattern: MVVM
+##### A pattern used for structuring the application architecture (MVVM is well-suited for implementing small applications).
 ##### (Clean separation between UI, logic, and data layers)
 
 #### - HTTP Client: dio
 ##### (Efficient networking, interceptors, error handling)
+#### Using the dio package, GET requests were implemented to retrieve the following data:
+##### - a list of characters
+##### - character search by name
+##### - detailed character information
+##### - detailed episodes information
 
 #### - Service Locator: get_it
+##### It is used to create objects based on the Singleton pattern in order to reduce the number of objects instantiated by the application and to provide global access to them, which significantly decreases resource usage and improves control over class instances.
 ##### (Used for dependency injection and singletons)
 
 ### I highly recommend it to everyone and thank you for the opportunity.
