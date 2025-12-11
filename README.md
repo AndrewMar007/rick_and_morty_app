@@ -6,10 +6,24 @@
 
 <p align="center">
   
-  <img src="screenshots/main.png" height="400">
-  <img src="screenshots/search.png" height="400">
-  <img src="screenshots/character.png" height="400">
-  <img src="screenshots/episode.png" height="400">
+  <div style="display: flex; justify-content: center; gap: 30px;">
+    <div style="text-align: center;">
+      <p>Main</p>
+      <img src="screenshots/main.png" height="400" style="margin-right: 20px;">
+    </div>
+    <div style="text-align: center;">
+      <p>Search</p>
+      <img src="screenshots/search.png" height="400" style="margin-right: 20px;">
+    </div>
+    <div style="text-align: center;">
+      <p>Character</p>
+      <img src="screenshots/character.png" height="400" style="margin-right: 20px;">
+    </div>
+    <div style="text-align: center;">
+      <p>Episode</p>
+      <img src="screenshots/episode.png" height="400">
+    </div>
+  </div>
 </p>
 
 <!-- <div style="display: flex; justify-content: center; gap: 30px;">
