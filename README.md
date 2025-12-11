@@ -63,19 +63,19 @@ lib/
 ##### (A powerful reactive state-management library built on top of Provider)
 
 #### - Architecture Pattern: MVVM
-##### A pattern used for structuring the application architecture (MVVM is well-suited for implementing small applications).
+###### A pattern used for structuring the application architecture (MVVM is well-suited for implementing small applications).
 ##### (Clean separation between UI, logic, and data layers)
 
 #### - HTTP Client: dio
 ##### (Efficient networking, interceptors, error handling)
-#### Using the dio package, GET requests were implemented to retrieve the following data:
-##### - a list of characters
-##### - character search by name
-##### - detailed character information
-##### - detailed episodes information
+##### Using the dio package, GET requests were implemented to retrieve the following data:
+###### - a list of characters
+###### - character search by name
+###### - detailed character information
+###### - detailed episodes information
 
 #### - Service Locator: get_it
-##### It is used to create objects based on the Singleton pattern in order to reduce the number of objects instantiated by the application and to provide global access to them, which significantly decreases resource usage and improves control over class instances.
+###### It is used to create objects based on the Singleton pattern in order to reduce the number of objects instantiated by the application and to provide global access to them, which significantly decreases resource usage and improves control over class instances.
 ##### (Used for dependency injection and singletons)
 
 ### I highly recommend it to everyone and thank you for the opportunity.
