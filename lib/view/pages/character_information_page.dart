@@ -45,7 +45,7 @@ class _CharacterInformationPageState extends State<CharacterInformationPage> {
         centerTitle: true,
         title: const Text(
           "Character info",
-          style: TextStyle(color: Colors.white, fontSize: 16),
+          style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
         ),
         backgroundColor: const Color.fromARGB(253, 19, 19, 19),
         automaticallyImplyLeading: true,

@@ -115,7 +115,6 @@ class _MainScreenState extends State<MainScreen> {
                   ),
               );
             }
-
             if (state is ErrorState &&
                 state is! FetchListOfCharactersLoadedState) {
               return Center(
