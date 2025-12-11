@@ -4,27 +4,18 @@
 
 #### A Flutter application built for testing and exploring the Rick and Morty API.
 
-<p align="center">
-  
-  <div style="display: flex; justify-content: center;">
-    <div style="text-align: center;">
-      <p>Main</p>
-      <img src="screenshots/main.png" height="400"">
-    </div>
-    <div style="text-align: center;">
-      <p>Search</p>
-      <img src="screenshots/search.png" height="400"">
-    </div>
-    <div style="text-align: center;">
-      <p>Character</p>
-      <img src="screenshots/character.png" height="400"">
-    </div>
-    <div style="text-align: center;">
-      <p>Episode</p>
-      <img src="screenshots/episode.png" height="400">
-    </div>
-  </div>
-</p>
+### 📸 Screenshots
+
+| Main | Search |
+|------|--------|
+| <img src="screenshots/main.png" height="400"/> | <img src="screenshots/search.png" height="400"/> |
+
+<br>
+
+| Character | Episode |
+|-----------|----------|
+| <img src="screenshots/character.png" height="400"/> | <img src="screenshots/episode.png" height="400"/> |
+
 
 <!-- <div style="display: flex; justify-content: center; gap: 30px;">
   <div style="text-align: center;">
