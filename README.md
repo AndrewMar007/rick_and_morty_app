@@ -4,7 +4,15 @@
 
 #### A Flutter application built for testing and exploring the Rick and Morty API.
 
-<div style="display: flex; justify-content: center; gap: 30px;">
+<p align="center">
+  
+  <img src="screenshots/main.png" height="400">
+  <img src="screenshots/search.png" height="400">
+  <img src="screenshots/character.png" width="400">
+  <img src="screenshots/episode.png" width="400">
+</p>
+
+<!-- <div style="display: flex; justify-content: center; gap: 30px;">
   <div style="text-align: center;">
     <h4>Characters List Page</h4>
     <img src="screenshots/main.png" width="250">
@@ -28,7 +36,7 @@
     <h4>Episode Info Page</h4>
     <img src="screenshots/episode.png" width="250">
   </div>
-</div>
+</div> -->
 
 ## ✅ Implemented Features
 
