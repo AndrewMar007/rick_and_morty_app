@@ -5,7 +5,6 @@ import 'package:mocktail/mocktail.dart';
 import 'package:rick_and_morty_app/core/exceptions/exceptions.dart';
 import 'package:rick_and_morty_app/core/exceptions/failures.dart';
 import 'package:rick_and_morty_app/core/network/network_info.dart';
-import 'package:rick_and_morty_app/model/character_model.dart';
 import 'package:rick_and_morty_app/services/character_service/character_service.dart';
 import 'package:rick_and_morty_app/view_model/character_view_model/character_view_model.dart';
 
