@@ -1,15 +1,15 @@
 import 'package:equatable/equatable.dart';
 
 class EpisodeModel extends Equatable {
-  int id;
-  String name;
-  String airDate;
-  String episode;
-  List<dynamic> characters;
-  String url;
-  String created;
+  final int id;
+  final String name;
+  final String airDate;
+  final String episode;
+  final List<dynamic> characters;
+  final String url;
+  final String created;
 
-  EpisodeModel(
+  const EpisodeModel(
       {required this.id,
       required this.name,
       required this.airDate,
