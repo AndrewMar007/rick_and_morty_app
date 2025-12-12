@@ -6,8 +6,7 @@ import 'package:rick_and_morty_app/services/character_service/character_service.
 
 import '../../core/exceptions/failures.dart';
 
-String internetFailureMessage = "No internet connection";
-String serverFailureMessage = "Server Failure";
+
 abstract class CharacterViewModel {
   Future<Either<Failure, List<CharacterModel>>> fetchListOfCharacters(
       int page);
@@ -30,10 +29,10 @@ class CharacterViewModelImpl
         final data = await service.fetchCharacterByName(name);
         return Right(data);
       } on ServerException {
-        return Left(ServerFailure(failure: serverFailureMessage));
+        return Left(ServerFailure());
       }
     } else {
-      return Left(InternetFailure(failure: internetFailureMessage));
+      return Left(InternetFailure());
     }
   }
 
@@ -45,10 +44,10 @@ class CharacterViewModelImpl
         final data = await service.fetchListOfCharacters(page);
         return Right(data);
       } on ServerException{
-        return Left(ServerFailure(failure: serverFailureMessage));
+        return Left(ServerFailure());
       }
     } else {
-      return Left(InternetFailure(failure: internetFailureMessage));
+      return Left(InternetFailure());
     }
   }
   
@@ -60,10 +59,10 @@ class CharacterViewModelImpl
         final data = await service.findCharacterById(id);
         return Right(data);
       } on ServerException{
-        return Left(ServerFailure(failure: serverFailureMessage));
+        return Left(ServerFailure());
       }
     } else {
-      return Left(InternetFailure(failure: internetFailureMessage));
+      return Left(InternetFailure());
     }
   }
 }
