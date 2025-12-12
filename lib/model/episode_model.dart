@@ -1,4 +1,6 @@
-class EpisodeModel {
+import 'package:equatable/equatable.dart';
+
+class EpisodeModel extends Equatable {
   int id;
   String name;
   String airDate;
@@ -25,4 +27,8 @@ class EpisodeModel {
         url: json["url"],
         created: json["created"]);
   }
+
+  @override
+  List<Object?> get props =>
+      [id, name, airDate, episode, characters, url, created];
 }
