@@ -11,7 +11,6 @@ import '../../fixtures/fixtures_reader.dart';
 import '../../values/values_test.dart';
 
 class MockDioClient extends Mock implements Dio {}
-class FakeUri extends Fake implements Uri {}
 
 void main() {
   late CharacterService service;
@@ -20,7 +19,6 @@ void main() {
   setUp(() {
     mockDioClient = MockDioClient();
     service = CharacterServiceImpl(client: mockDioClient);
-    registerFallbackValue(FakeUri());
   });
   
   void setUpMockDioClientSuccess200(String fixtureString) {
