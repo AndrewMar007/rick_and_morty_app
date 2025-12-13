@@ -44,7 +44,7 @@ class CharacterBlocList extends Bloc<CharacterBlocEvent, CharacterBlocState> {
       (charactersPage) {
         _allCharacters.addAll(charactersPage);
 
-        if (charactersPage.isEmpty || charactersPage.length < 15) {
+        if (charactersPage.isEmpty || charactersPage.length < 10) {
           _hasMore = false;
         } else {
           _page++;
@@ -108,7 +108,7 @@ class CharacterBlocFindById
     data.fold(
         (failure) => emmit(
             ErrorState(error: FailureMessage().mapFailureToMessage(failure))),
-        (characters) => emmit(FindCharacterByIdLoadedState(model: characters)));
+        (characters) => emmit(FindCharacterByIdLoadedState(list: characters)));
   }
 }
 

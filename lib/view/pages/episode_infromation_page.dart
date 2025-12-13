@@ -196,9 +196,9 @@ class _EpisodeInformationPageState extends State<EpisodeInformationPage> {
                         );
                       } else if (state is FindCharacterByIdLoadedState) {
                         return ListView.builder(
-                            itemCount: state.model.length,
+                            itemCount: state.list.length,
                             itemBuilder: (context, index) {
-                              final List<CharacterModel> list = state.model;
+                              final List<CharacterModel> list = state.list;
                               //final List<EpisodeModel> list = model.episode.map((e) => EpisodeModel.fromJson(e)).toList();
                               return Padding(
                                 padding: EdgeInsets.symmetric(

@@ -36,10 +36,10 @@ class FetchListOfCharactersLoadedState extends CharacterBlocState {
 }
 
 class FindCharacterByIdLoadedState extends CharacterBlocState{
-  final List<CharacterModel> model;
-  FindCharacterByIdLoadedState({required this.model}); 
+  final List<CharacterModel> list;
+  FindCharacterByIdLoadedState({required this.list}); 
   @override
-  List<Object?> get props => [model];
+  List<Object?> get props => [list];
   
 }
 
