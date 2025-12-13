@@ -6,7 +6,6 @@ import 'package:rick_and_morty_app/core/exceptions/exceptions.dart';
 import 'package:rick_and_morty_app/core/exceptions/failures.dart';
 import 'package:rick_and_morty_app/core/network/network_info.dart';
 import 'package:rick_and_morty_app/services/episode_service/episode_service.dart';
-import 'package:rick_and_morty_app/view_model/character_view_model/character_view_model.dart';
 import 'package:rick_and_morty_app/view_model/episode_view_model/episode_view_model.dart';
 
 import '../../values/values_test.dart';

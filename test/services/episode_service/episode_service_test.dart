@@ -4,9 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:rick_and_morty_app/core/exceptions/exceptions.dart';
-import 'package:rick_and_morty_app/model/character_model.dart';
 import 'package:rick_and_morty_app/model/episode_model.dart';
-import 'package:rick_and_morty_app/services/character_service/character_service.dart';
 import 'package:rick_and_morty_app/services/episode_service/episode_service.dart';
 
 import '../../fixtures/fixtures_reader.dart';
