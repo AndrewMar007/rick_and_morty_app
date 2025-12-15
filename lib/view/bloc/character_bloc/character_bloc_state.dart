@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 
+import '../../../core/exceptions/failures.dart';
 import '../../../model/character_model.dart';
 
 abstract class CharacterBlocState extends Equatable {}
@@ -44,9 +45,9 @@ class FindCharacterByIdLoadedState extends CharacterBlocState{
 }
 
 class ErrorState extends CharacterBlocState{
-  final String error;
-  ErrorState({required this.error});
+  final Failure failure;
+  ErrorState({required this.failure});
   @override
-  List<Object?> get props => [error];
+  List<Object?> get props => [failure];
   
 }

@@ -1,6 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:rick_and_morty_app/model/episode_model.dart';
 
+import '../../../core/exceptions/failures.dart';
+
 abstract class EpisodesBlocState extends Equatable{}
 
 class InitState extends EpisodesBlocState{
@@ -16,8 +18,8 @@ class LoadingState extends EpisodesBlocState{
 }
 
 class ErrorState extends EpisodesBlocState{
-  final String error;
-  ErrorState({required this.error});
+  final Failure failure;
+  ErrorState({required this.failure});
   @override
   List<Object?> get props => [];
   

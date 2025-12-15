@@ -269,10 +269,10 @@ class _EpisodeInformationPageState extends State<EpisodeInformationPage> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const Text(
-                                "No internet connection\nTurn on please",
+                              Text(
+                                state.failure.message,
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color:
                                         Color.fromARGB(255, 124, 220, 255)),
                               ),

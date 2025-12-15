@@ -129,12 +129,29 @@ void main() {
           CharacterBlocList(characterViewModel: mockCharacterViewModel),
       act: (bloc) {
         when(() => mockCharacterViewModel.fetchListOfCharacters(any()))
-            .thenAnswer((_) async => Left(ServerFailure()));
+            .thenAnswer((_) async => const Left(ServerFailure()));
         bloc.add(GetCharacterListEvent());
       },
       expect: () => [
         isA<LoadingState>(),
-        isA<ErrorState>(),
+        isA<ErrorState>()
+            .having((s) => s.failure, 'failure', isA<ServerFailure>()),
+      ],
+    );
+
+    blocTest(
+      "should emit, [Loading, Error] when no internet connection",
+      build: () =>
+          CharacterBlocList(characterViewModel: mockCharacterViewModel),
+      act: (bloc) {
+        when(() => mockCharacterViewModel.fetchListOfCharacters(any()))
+            .thenAnswer((_) async => const Left(InternetFailure()));
+        bloc.add(GetCharacterListEvent());
+      },
+      expect: () => [
+        isA<LoadingState>(),
+        isA<ErrorState>()
+            .having((s) => s.failure, 'failure', isA<InternetFailure>()),
       ],
     );
   });
@@ -183,7 +200,7 @@ void main() {
                   .having((s) => s.charactersList, 'list', equals(list10))
             ]);
     blocTest<CharacterBlocFindByName, CharacterBlocState>(
-        "should emit [LoadingState, ErrorState when fetching when getting data fails]",
+        "should emit [LoadingState, ErrorState when getting data fails]",
         build: () =>
             CharacterBlocFindByName(characterViewModel: mockCharacterViewModel),
         act: (bloc) async {
@@ -191,7 +208,25 @@ void main() {
               .thenAnswer((_) async => Left(ServerFailure()));
           bloc.add(GetCharacterByNameEvent(name: name));
         },
-        expect: () => [isA<LoadingState>(), isA<ErrorState>()]);
+        expect: () => [
+              isA<LoadingState>(),
+              isA<ErrorState>()
+                  .having((s) => s.failure, 'failure', isA<ServerFailure>())
+            ]);
+    blocTest<CharacterBlocFindByName, CharacterBlocState>(
+        "should emit [LoadingState, ErrorState when no internet connection ]",
+        build: () =>
+            CharacterBlocFindByName(characterViewModel: mockCharacterViewModel),
+        act: (bloc) async {
+          when(() => mockCharacterViewModel.fetchCharacterByName(name))
+              .thenAnswer((_) async => const Left(InternetFailure()));
+          bloc.add(GetCharacterByNameEvent(name: name));
+        },
+        expect: () => [
+              isA<LoadingState>(),
+              isA<ErrorState>()
+                  .having((s) => s.failure, 'failure', isA<InternetFailure>())
+            ]);
   });
 
   group("FindCharacterByIdEvent", () {
@@ -239,18 +274,34 @@ void main() {
       ],
     );
 
-    blocTest(
-      "should emit [LoadingState, ErrorState] when getting data failed",
-      build: () =>
-          CharacterBlocFindById(characterViewModel: mockCharacterViewModel),
-          act: (bloc) {
-            when(() => mockCharacterViewModel.findCharacterById(any())).thenAnswer((_) async => Left(ServerFailure()));
-            bloc.add(FindCharacterByIdEvent(id: listOfIds));
-          },
-          expect: () => [
-            isA<LoadingState>(),
-            isA<ErrorState>()
-          ]
-    );
+    blocTest<CharacterBlocFindById, CharacterBlocState>(
+        "should emit [LoadingState, ErrorState] when getting data failed",
+        build: () =>
+            CharacterBlocFindById(characterViewModel: mockCharacterViewModel),
+        act: (bloc) {
+          when(() => mockCharacterViewModel.findCharacterById(any()))
+              .thenAnswer((_) async => const Left(ServerFailure()));
+          bloc.add(FindCharacterByIdEvent(id: listOfIds));
+        },
+        expect: () => [
+              isA<LoadingState>(),
+              isA<ErrorState>()
+                  .having((s) => s.failure, "failure", isA<ServerFailure>())
+            ]);
+
+    blocTest<CharacterBlocFindById, CharacterBlocState>(
+        "should emit [LoadingState, ErrorState] when no internet connection",
+        build: () =>
+            CharacterBlocFindById(characterViewModel: mockCharacterViewModel),
+        act: (bloc) {
+          when(() => mockCharacterViewModel.findCharacterById(any()))
+              .thenAnswer((_) async => const Left(InternetFailure()));
+          bloc.add(FindCharacterByIdEvent(id: listOfIds));
+        },
+        expect: () => [
+              isA<LoadingState>(),
+              isA<ErrorState>()
+                  .having((s) => s.failure, "failure", isA<InternetFailure>())
+            ]);
   });
 }

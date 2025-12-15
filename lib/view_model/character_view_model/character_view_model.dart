@@ -29,10 +29,10 @@ class CharacterViewModelImpl
         final data = await service.fetchCharacterByName(name);
         return Right(data);
       } on ServerException {
-        return Left(ServerFailure());
+        return const Left(ServerFailure());
       }
     } else {
-      return Left(InternetFailure());
+      return const Left(InternetFailure());
     }
   }
 
@@ -44,10 +44,10 @@ class CharacterViewModelImpl
         final data = await service.fetchListOfCharacters(page);
         return Right(data);
       } on ServerException{
-        return Left(ServerFailure());
+        return const Left(ServerFailure());
       }
     } else {
-      return Left(InternetFailure());
+      return const Left(InternetFailure());
     }
   }
   
@@ -59,10 +59,10 @@ class CharacterViewModelImpl
         final data = await service.findCharacterById(id);
         return Right(data);
       } on ServerException{
-        return Left(ServerFailure());
+        return const Left(ServerFailure());
       }
     } else {
-      return Left(InternetFailure());
+      return const Left(InternetFailure());
     }
   }
 }

@@ -39,7 +39,7 @@ class CharacterBlocList extends Bloc<CharacterBlocEvent, CharacterBlocState> {
     data.fold(
       (failure) {
         _isFetching = false;
-        emit(ErrorState(error: FailureMessage().mapFailureToMessage(failure)));
+        emit(ErrorState(failure: failure));
       },
       (charactersPage) {
         _allCharacters.addAll(charactersPage);
@@ -68,7 +68,7 @@ class CharacterBlocList extends Bloc<CharacterBlocEvent, CharacterBlocState> {
     final data = await characterViewModel.fetchCharacterByName(event.name);
     data.fold(
         (failure) => emmit(
-            ErrorState(error: FailureMessage().mapFailureToMessage(failure))),
+            ErrorState(failure: failure)),
         (characters) =>
             emmit(FetchCharacterByNameLoadedState(charactersList: characters)));
   }
@@ -88,7 +88,7 @@ class CharacterBlocFindByName
     final data = await characterViewModel.fetchCharacterByName(event.name);
     data.fold(
         (failure) => emmit(
-            ErrorState(error: FailureMessage().mapFailureToMessage(failure))),
+            ErrorState(failure: failure)),
         (characters) =>
             emmit(FetchCharacterByNameLoadedState(charactersList: characters)));
   }
@@ -107,20 +107,8 @@ class CharacterBlocFindById
     final data = await characterViewModel.findCharacterById(event.id);
     data.fold(
         (failure) => emmit(
-            ErrorState(error: FailureMessage().mapFailureToMessage(failure))),
+            ErrorState(failure: failure)),
         (characters) => emmit(FindCharacterByIdLoadedState(list: characters)));
   }
 }
 
-class FailureMessage {
-  String mapFailureToMessage(Failure failure) {
-    switch (failure.runtimeType) {
-      case const (ServerFailure):
-        return serverFailureMessage;
-      case const (InternetFailure):
-        return internetFailureMessage;
-      default:
-        return "Unexpected Error";
-    }
-  }
-}

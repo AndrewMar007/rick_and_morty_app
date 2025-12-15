@@ -121,11 +121,11 @@ class _MainScreenState extends State<MainScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
-                      "No internet connection\nTurn on please",
+                     Text(
+                      state.failure.message,
                       textAlign: TextAlign.center,
                       style:
-                          TextStyle(color: Color.fromARGB(255, 124, 220, 255)),
+                          const TextStyle(color: Color.fromARGB(255, 124, 220, 255)),
                     ),
                     SizedBox(height: size.height * 0.02,),
                     TextButton(

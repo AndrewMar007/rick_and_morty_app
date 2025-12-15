@@ -17,7 +17,6 @@ class SearchCharacterPage extends StatefulWidget {
 }
 
 class _SearchCharacterPageState extends State<SearchCharacterPage> {
-  
   final TextEditingController _textController = TextEditingController();
 
   @override
@@ -29,7 +28,6 @@ class _SearchCharacterPageState extends State<SearchCharacterPage> {
         elevation: 2.0,
         shadowColor: Colors.black,
         surfaceTintColor: Colors.transparent,
-        
         title: const Text(
           "Search",
           style: TextStyle(
@@ -50,22 +48,28 @@ class _SearchCharacterPageState extends State<SearchCharacterPage> {
         width: size.width,
         child: Column(
           children: [
-            SizedBox(height: size.height * 0.02,),
+            SizedBox(
+              height: size.height * 0.02,
+            ),
             CustomTextField(
                 height: size.height * 0.06,
                 width: size.width * 0.9,
                 hintText: "Tap to find character",
                 controller: _textController,
                 onSubmitted: (value) {
-                 if(value.isEmpty){
-                   context.read<CharacterBlocFindByName>().add(ResetBlocEvent());
-                  return;
-                 } else {
-                   BlocProvider.of<CharacterBlocFindByName>(context)
-                      .add(GetCharacterByNameEvent(name: value));
-                 }
+                  if (value.isEmpty) {
+                    context
+                        .read<CharacterBlocFindByName>()
+                        .add(ResetBlocEvent());
+                    return;
+                  } else {
+                    BlocProvider.of<CharacterBlocFindByName>(context)
+                        .add(GetCharacterByNameEvent(name: value));
+                  }
                 }),
-                SizedBox(height: size.height * 0.02,),
+            SizedBox(
+              height: size.height * 0.02,
+            ),
             SizedBox(
               height: size.height * 0.78,
               child: BlocBuilder<CharacterBlocFindByName, CharacterBlocState>(
@@ -122,39 +126,48 @@ class _SearchCharacterPageState extends State<SearchCharacterPage> {
                   );
                 } else if (state is ErrorState) {
                   return Center(
-                child: Column(
-                  
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      "No internet connection\nTurn on please",
-                      textAlign: TextAlign.center,
-                      style:
-                          TextStyle(color: Color.fromARGB(255, 124, 220, 255)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          state.failure.message,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 124, 220, 255)),
+                        ),
+                        SizedBox(
+                          height: size.height * 0.02,
+                        ),
+                        TextButton(
+                          child: Container(
+                              height: size.height * 0.05,
+                              width: size.width * 0.4,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  border: Border.all(
+                                      color: const Color.fromARGB(
+                                          255, 125, 220, 255))),
+                              child: const Center(
+                                  child: Text(
+                                "Tap to get data",
+                                style: TextStyle(
+                                    color: Color.fromARGB(255, 122, 220, 255)),
+                              ))),
+                          onPressed: () {
+                            BlocProvider.of<CharacterBlocFindByName>(context)
+                                .add(GetCharacterByNameEvent(
+                                    name: _textController.text));
+                          },
+                        ),
+                      ],
                     ),
-                    SizedBox(height: size.height * 0.02,),
-                    TextButton(
-                      child: Container(
-                        height: size.height * 0.05,
-                        width: size.width * 0.4,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20.0),
-                              border: Border.all(
-                                  color: const Color.fromARGB(255, 125, 220, 255))),
-                          child: const Center(child: Text("Tap to get data", style: TextStyle(color: Color.fromARGB(255, 122, 220, 255)),))),
-                      onPressed: () {
-                        BlocProvider.of<CharacterBlocFindByName>(context)
-                      .add(GetCharacterByNameEvent(name: _textController.text));
-                      },
-                    ),
-                  ],
-                ),
-              );
+                  );
                 } else {
                   return const Center(
                     child: Text(
                       "Search your favorite character",
-                      style: TextStyle(color: Color.fromARGB(255, 110, 194, 225)),
+                      style:
+                          TextStyle(color: Color.fromARGB(255, 110, 194, 225)),
                     ),
                   );
                 }
