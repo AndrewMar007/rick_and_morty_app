@@ -78,8 +78,6 @@ class _CharacterInformationPageState extends State<CharacterInformationPage> {
                     width: size.width * 0.4,
                     child: widget.model.image.isNotEmpty
                         ? Container(
-                            height: size.height * 0.2,
-                            width: size.width * 0.4,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(30),
                               boxShadow: const [

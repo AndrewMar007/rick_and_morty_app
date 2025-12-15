@@ -205,48 +205,55 @@ class _EpisodeInformationPageState extends State<EpisodeInformationPage> {
                                     vertical: size.height * 0.01),
                                 child: Row(
                                   children: [
-                                    SizedBox(width: size.width * 0.02,),
-                                    Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(90.0),
-                                          boxShadow: const [
-                                            BoxShadow(
-                                                blurRadius: 5.0,
-                                                offset: Offset(3, 2),
-                                                color: Color.fromARGB(255, 15, 15, 15)),
-                                          ],
-                                        ),
-                                        height: size.height * 0.09,
-                                        width: size.width * 0.18,
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(100),
-                                          child: Image.network(
-                                              list[index].image, loadingBuilder:
-                                                  (BuildContext context,
-                                                      Widget child,
-                                                      ImageChunkEvent?
-                                                          loadingProgress) {
-                                            if (loadingProgress == null) {
-                                              return child;
-                                            }
-                                            return Center(
-                                              child: CircularProgressIndicator(
-                                                color: const Color.fromARGB(
-                                                    255, 110, 194, 225),
-                                                value: loadingProgress
-                                                            .expectedTotalBytes !=
-                                                        null
-                                                    ? loadingProgress
-                                                            .cumulativeBytesLoaded /
-                                                        loadingProgress
-                                                            .expectedTotalBytes!
-                                                    : null,
-                                              ),
-                                            );
-                                          }),
-                                        )),
+                                    SizedBox(
+                                      width: size.width * 0.02,
+                                    ),
+                                    SizedBox(
+                                      height: size.height * 0.09,
+                                      width: size.width * 0.18,
+                                      child: list[index].image.isNotEmpty ? Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(90.0),
+                                            boxShadow: const [
+                                              BoxShadow(
+                                                  blurRadius: 5.0,
+                                                  offset: Offset(3, 2),
+                                                  color: Color.fromARGB(
+                                                      255, 15, 15, 15)),
+                                            ],
+                                          ),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(100),
+                                            child: Image.network(
+                                                list[index].image,
+                                                loadingBuilder:
+                                                    (BuildContext context,
+                                                        Widget child,
+                                                        ImageChunkEvent?
+                                                            loadingProgress) {
+                                              if (loadingProgress == null) {
+                                                return child;
+                                              }
+                                              return Center(
+                                                child:
+                                                    CircularProgressIndicator(
+                                                  color: const Color.fromARGB(
+                                                      255, 110, 194, 225),
+                                                  value: loadingProgress
+                                                              .expectedTotalBytes !=
+                                                          null
+                                                      ? loadingProgress
+                                                              .cumulativeBytesLoaded /
+                                                          loadingProgress
+                                                              .expectedTotalBytes!
+                                                      : null,
+                                                ),
+                                              );
+                                            }),
+                                          )) : Icon(Icons.image_not_supported_outlined, color: Colors.white, size: 30.0)
+                                    ),
                                     SizedBox(
                                       width: size.width * 0.05,
                                     ),
