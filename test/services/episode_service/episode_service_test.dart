@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:rick_and_morty_app/core/api_config/api_config.dart';
 import 'package:rick_and_morty_app/core/exceptions/exceptions.dart';
 import 'package:rick_and_morty_app/model/episode_model.dart';
 import 'package:rick_and_morty_app/services/episode_service/episode_service.dart';
@@ -23,7 +24,7 @@ void main() {
   
   void setUpMockDioClientSuccess200(String fixtureString) {
     when(() => mockDioClient.get(any())).thenAnswer((_) async => Response(
-        requestOptions: RequestOptions(path: ''),
+        requestOptions: RequestOptions(path: ApiConfig.episodes),
         statusCode: 200,
         data: json.decode(fixture(fixtureString))
         ));
@@ -31,7 +32,7 @@ void main() {
 
   void setUpMockDioClientFailure404() {
     when(() => mockDioClient.get(any())).thenAnswer((_) async => Response(
-        requestOptions: RequestOptions(path: ''),
+        requestOptions: RequestOptions(path: ApiConfig.episodes),
         statusCode: 404,
         data: {"message" : "Something went wrong"}));
   }
@@ -49,7 +50,7 @@ void main() {
       setUpMockDioClientSuccess200(fixtureString);
       await service.fetchEpisodesList(listOfIds);
 
-      verify(() => mockDioClient.get("https://rickandmortyapi.com/api/episode/$convertedList"));
+      verify(() => mockDioClient.get("${ApiConfig.episodes}/$convertedList"));
           
     });
 

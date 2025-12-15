@@ -51,7 +51,7 @@ void main() {
         build: () => EpisodesBloc(episodeViewModel: mockEpisodeViewModel),
         act: (bloc) {
           when(() => mockEpisodeViewModel.fetchEpisodesList(any()))
-              .thenAnswer((_) async => Left(ServerFailure()));
+              .thenAnswer((_) async => const Left(ServerFailure()));
           bloc.add(FetchListOfEpisodes(episodes: episodesIds));
         },
         expect: () => [isA<LoadingState>(), isA<ErrorState>()]);

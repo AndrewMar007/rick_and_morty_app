@@ -23,10 +23,10 @@ class EpisodeViewModelImpl extends EpisodeViewModel {
         final data = await service.fetchEpisodesList(episodes);
         return Right(data);
       } on ServerException{
-        return Left(ServerFailure());
+        return const Left(ServerFailure());
       }
     } else {
-      return Left(InternetFailure());
+      return const Left(InternetFailure());
     }
   }
 }

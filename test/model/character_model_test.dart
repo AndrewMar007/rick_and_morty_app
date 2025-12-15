@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:rick_and_morty_app/model/character_model.dart';
 
 import '../fixtures/fixtures_reader.dart';
+import '../values/values_test.dart';
 
 void main() {
   CharacterModel tCharacterModel = const CharacterModel(
@@ -14,10 +15,7 @@ void main() {
       type: "",
       gender: "Male",
       image: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
-      location: {
-        "name": "Earth",
-        "url": "https://rickandmortyapi.com/api/location/20"
-      },
+      location: CharacterModelValues.location,
       episode: [
         "https://rickandmortyapi.com/api/episode/1",
         "https://rickandmortyapi.com/api/episode/2"

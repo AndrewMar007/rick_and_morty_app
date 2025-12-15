@@ -52,7 +52,7 @@ void main() {
         type: "",
         gender: "Male",
         image: "",
-        location: {"name": "Earth", "url": ""},
+        location: CharacterModelValues.location,
         episode: [],
         url: "",
         created: "",
@@ -68,7 +68,7 @@ void main() {
         type: "",
         gender: "Male",
         image: "",
-        location: const {"name": "Earth", "url": ""},
+        location: CharacterModelValues.location,
         episode: const [],
         url: "",
         created: "",
@@ -168,7 +168,7 @@ void main() {
         type: "",
         gender: "Male",
         image: "",
-        location: const {"name": "Earth", "url": ""},
+        location: CharacterModelValues.location,
         episode: const [],
         url: "",
         created: "",
@@ -205,7 +205,7 @@ void main() {
             CharacterBlocFindByName(characterViewModel: mockCharacterViewModel),
         act: (bloc) async {
           when(() => mockCharacterViewModel.fetchCharacterByName(name))
-              .thenAnswer((_) async => Left(ServerFailure()));
+              .thenAnswer((_) async => const Left(ServerFailure()));
           bloc.add(GetCharacterByNameEvent(name: name));
         },
         expect: () => [
@@ -240,7 +240,7 @@ void main() {
         type: "",
         gender: "Male",
         image: "",
-        location: const {"name": "Earth", "url": ""},
+        location: CharacterModelValues.location,
         episode: const [],
         url: "",
         created: "",

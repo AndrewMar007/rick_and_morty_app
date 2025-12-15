@@ -57,14 +57,14 @@ void main() {
         when(() => mockCharacterService.fetchListOfCharacters(any())).thenThrow(ServerException());
         final result = await repository.fetchListOfCharacters(1);
         verify(() => mockCharacterService.fetchListOfCharacters(1));
-        expect(result, equals(Left(ServerFailure())));
+        expect(result, equals(const Left(ServerFailure())));
       });
     });
     runTestOffline((){
       test("should return InternetFailure when isConnected == false", () async {
         final result = await repository.fetchListOfCharacters(1);
         verifyZeroInteractions(mockCharacterService);
-        expect(result, equals(Left(InternetFailure())));
+        expect(result, equals(const Left(InternetFailure())));
       });
     });
   });
@@ -82,14 +82,14 @@ void main() {
         when(() => mockCharacterService.fetchCharacterByName(any())).thenThrow(ServerException());
         final result = await repository.fetchCharacterByName(characterName);
         verify(() => mockCharacterService.fetchCharacterByName(characterName));
-        expect(result, equals(Left(ServerFailure())));
+        expect(result, equals(const Left(ServerFailure())));
       });
     });
     runTestOffline((){
       test("should return InternetFailure when isConnected == false", () async {
         final result = await repository.fetchCharacterByName(characterName);
         verifyZeroInteractions(mockCharacterService);
-        expect(result, equals(Left(InternetFailure())));
+        expect(result, equals(const Left(InternetFailure())));
       });
     });
   });
@@ -107,7 +107,7 @@ void main() {
         when(() => mockCharacterService.findCharacterById(any())).thenThrow(ServerException());
         final result = await repository.findCharacterById(characterIdList);
         verify(() => mockCharacterService.findCharacterById(characterIdList));
-        expect(result, equals(Left(ServerFailure())));
+        expect(result, equals(const Left(ServerFailure())));
       });
     });
 
@@ -115,7 +115,7 @@ void main() {
       test("should return InternetFailure when isConnected == false", () async {
         final result = await repository.findCharacterById(characterIdList);
         verifyZeroInteractions(mockCharacterService);
-        expect(result, equals(Left(InternetFailure())));
+        expect(result, equals(const Left(InternetFailure())));
       });
     });
   });
