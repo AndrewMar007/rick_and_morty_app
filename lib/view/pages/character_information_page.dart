@@ -14,7 +14,8 @@ class CharacterInformationPage extends StatefulWidget {
   const CharacterInformationPage({super.key, required this.model});
 
   @override
-  State<CharacterInformationPage> createState() => _CharacterInformationPageState();
+  State<CharacterInformationPage> createState() =>
+      _CharacterInformationPageState();
 }
 
 class _CharacterInformationPageState extends State<CharacterInformationPage> {
@@ -45,7 +46,8 @@ class _CharacterInformationPageState extends State<CharacterInformationPage> {
         centerTitle: true,
         title: const Text(
           "Character info",
-          style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+          style: TextStyle(
+              color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
         ),
         backgroundColor: const Color.fromARGB(253, 19, 19, 19),
         automaticallyImplyLeading: true,
@@ -67,18 +69,40 @@ class _CharacterInformationPageState extends State<CharacterInformationPage> {
                 height: size.height * 0.05,
               ),
               Align(
-                  alignment: Alignment.center,
+                alignment: Alignment.center,
+                child: SizedBox(
+                  height: size.height * 0.2,
+                  width: size.width * 0.4,
                   child: SizedBox(
                     height: size.height * 0.2,
                     width: size.width * 0.4,
-                    child: SizedBox(
-                        height: size.height * 0.2,
-                        width: size.width * 0.4,
-                        child: ClipRRect(
-                            borderRadius: BorderRadius.circular(30.0),
-                            child: Image(
-                                image: NetworkImage(widget.model.image)))),
-                  )),
+                    child: widget.model.image.isNotEmpty
+                        ? Container(
+                            height: size.height * 0.2,
+                            width: size.width * 0.4,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              boxShadow: const [
+                                BoxShadow(
+                                    blurRadius: 10.0,
+                                    offset: Offset(2, 2),
+                                    color: Color.fromARGB(255, 0, 0, 0)),
+                              ],
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(30.0),
+                              child: Image(
+                                  image: NetworkImage(widget.model.image)),
+                            ),
+                          )
+                        : const Icon(
+                            Icons.image_not_supported_outlined,
+                            color: Colors.white,
+                            size: 50.0,
+                          ),
+                  ),
+                ),
+              ),
               SizedBox(
                 height: size.height * 0.02,
               ),
@@ -121,7 +145,8 @@ class _CharacterInformationPageState extends State<CharacterInformationPage> {
                           "${widget.model.status.isEmpty ? "No info" : widget.model.status} - ${widget.model.species.isEmpty ? "No info" : widget.model.species}",
                           softWrap: true,
                           maxLines: 2,
-                          style: const TextStyle(color: Colors.white, fontSize: 16),
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 16),
                         ),
                       ),
                     ],
@@ -136,25 +161,29 @@ class _CharacterInformationPageState extends State<CharacterInformationPage> {
                 children: [
                   Text(
                       "Gender - ${widget.model.gender.isEmpty ? "No info" : widget.model.gender}",
-                      style: const TextStyle(color: Colors.white, fontSize: 16)),
+                      style:
+                          const TextStyle(color: Colors.white, fontSize: 16)),
                   SizedBox(
                     height: size.height * 0.03,
                   ),
                   Text(
-                      "Location - ${widget.model.location.isEmpty ? "No info" : widget.model.location["name"]}",
-                      style: const TextStyle(color: Colors.white, fontSize: 16)),
+                      "Location - ${widget.model.location.name.isEmpty ? "No info" : widget.model.gender}",
+                      style:
+                          const TextStyle(color: Colors.white, fontSize: 16)),
                   SizedBox(
                     height: size.height * 0.03,
                   ),
                   Text(
                       "Species - ${widget.model.species.isEmpty ? "No info" : widget.model.species}",
-                      style: const TextStyle(color: Colors.white, fontSize: 16)),
+                      style:
+                          const TextStyle(color: Colors.white, fontSize: 16)),
                   SizedBox(
                     height: size.height * 0.03,
                   ),
                   Text(
                       "Type - ${widget.model.type.isEmpty ? "No info" : widget.model.type}",
-                      style: const TextStyle(color: Colors.white, fontSize: 16)),
+                      style:
+                          const TextStyle(color: Colors.white, fontSize: 16)),
                   SizedBox(
                     height: size.height * 0.03,
                   ),
@@ -236,8 +265,7 @@ class _CharacterInformationPageState extends State<CharacterInformationPage> {
                                 "No internet connection\nTurn on please",
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                    color:
-                                        Color.fromARGB(255, 124, 220, 255)),
+                                    color: Color.fromARGB(255, 124, 220, 255)),
                               ),
                               SizedBox(
                                 height: size.height * 0.02,

@@ -43,7 +43,8 @@ class _EpisodeInformationPageState extends State<EpisodeInformationPage> {
         centerTitle: true,
         title: const Text(
           "Episode info",
-          style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
+          style: TextStyle(
+              color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
         ),
         backgroundColor: const Color.fromARGB(253, 19, 19, 19),
         automaticallyImplyLeading: true,
@@ -68,9 +69,7 @@ class _EpisodeInformationPageState extends State<EpisodeInformationPage> {
                 alignment: Alignment.center,
                 child: FittedBox(
                   child: Text(
-                      widget.model.name.isEmpty
-                          ? "No info"
-                          : widget.model.name,
+                      widget.model.name.isEmpty ? "No info" : widget.model.name,
                       style: const TextStyle(
                           color: Colors.white,
                           fontSize: 25,
@@ -140,7 +139,7 @@ class _EpisodeInformationPageState extends State<EpisodeInformationPage> {
                               color: Colors.white, fontSize: 16)),
                     ],
                   ),
-      
+
                   SizedBox(
                     height: size.height * 0.03,
                   ),
@@ -162,8 +161,9 @@ class _EpisodeInformationPageState extends State<EpisodeInformationPage> {
                   ),
                   SizedBox(
                     height: size.height * 0.58,
-                    child: BlocBuilder<CharacterBlocFindById,
-                        CharacterBlocState>(builder: (context, state) {
+                    child:
+                        BlocBuilder<CharacterBlocFindById, CharacterBlocState>(
+                            builder: (context, state) {
                       if (state is LoadingState) {
                         return SizedBox(
                           height: size.height * 0.6,
@@ -205,18 +205,25 @@ class _EpisodeInformationPageState extends State<EpisodeInformationPage> {
                                     vertical: size.height * 0.01),
                                 child: Row(
                                   children: [
+                                    SizedBox(width: size.width * 0.02,),
                                     Container(
                                         decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(20.0)),
+                                          borderRadius:
+                                              BorderRadius.circular(90.0),
+                                          boxShadow: const [
+                                            BoxShadow(
+                                                blurRadius: 5.0,
+                                                offset: Offset(3, 2),
+                                                color: Color.fromARGB(255, 15, 15, 15)),
+                                          ],
+                                        ),
                                         height: size.height * 0.09,
-                                        width: size.width * 0.19,
+                                        width: size.width * 0.18,
                                         child: ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(100),
                                           child: Image.network(
-                                              list[index].image,
-                                              loadingBuilder:
+                                              list[index].image, loadingBuilder:
                                                   (BuildContext context,
                                                       Widget child,
                                                       ImageChunkEvent?
@@ -225,8 +232,7 @@ class _EpisodeInformationPageState extends State<EpisodeInformationPage> {
                                               return child;
                                             }
                                             return Center(
-                                              child:
-                                                  CircularProgressIndicator(
+                                              child: CircularProgressIndicator(
                                                 color: const Color.fromARGB(
                                                     255, 110, 194, 225),
                                                 value: loadingProgress
@@ -273,8 +279,7 @@ class _EpisodeInformationPageState extends State<EpisodeInformationPage> {
                                 state.failure.message,
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
-                                    color:
-                                        Color.fromARGB(255, 124, 220, 255)),
+                                    color: Color.fromARGB(255, 124, 220, 255)),
                               ),
                               SizedBox(
                                 height: size.height * 0.02,

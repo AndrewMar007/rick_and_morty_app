@@ -105,25 +105,37 @@ class _SearchCharacterPageState extends State<SearchCharacterPage> {
                     ),
                   );
                 } else if (state is FetchCharacterByNameLoadedState) {
-                  return ListView.builder(
-                    itemCount: state.charactersList.length,
-                    itemBuilder: (context, index) {
-                      final item = state.charactersList[index];
-                      return CardWidget(
-                        size: size,
-                        text: item.name,
-                        imageUrl: item.image,
-                        species: item.species,
-                        status: item.status,
-                        onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                CharacterInformationPage(model: item),
+                  if (state.charactersList.isNotEmpty) {
+                    return ListView.builder(
+                      itemCount: state.charactersList.length,
+                      itemBuilder: (context, index) {
+                        final item = state.charactersList[index];
+                        return CardWidget(
+                          size: size,
+                          text: item.name.isEmpty ? "No info" : item.name,
+                          imageUrl: item.image,
+                          species:
+                              item.species.isEmpty ? "No info" : item.species,
+                          status: item.status.isEmpty ? "No info" : item.status,
+                          onTap: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  CharacterInformationPage(model: item),
+                            ),
                           ),
-                        ),
-                      );
-                    },
-                  );
+                        );
+                      },
+                    );
+                  } else {
+                    return const Center(
+                      child: Text(
+                        "No data finded\nTry another",
+                        textAlign: TextAlign.center,
+                        style:
+                            TextStyle(color: Color.fromARGB(255, 125, 220, 255)),
+                      ),
+                    );
+                  }
                 } else if (state is ErrorState) {
                   return Center(
                     child: Column(
@@ -132,7 +144,7 @@ class _SearchCharacterPageState extends State<SearchCharacterPage> {
                         Text(
                           state.failure.message,
                           textAlign: TextAlign.center,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Color.fromARGB(255, 124, 220, 255)),
                         ),
                         SizedBox(
