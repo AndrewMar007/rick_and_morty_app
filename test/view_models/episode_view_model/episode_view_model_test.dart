@@ -55,14 +55,14 @@ void main() {
         when(() => mockEpisodeService.fetchEpisodesList(any())).thenThrow(ServerException());
         final result = await repository.fetchEpisodesList(listOfIds);
         verify(() => mockEpisodeService.fetchEpisodesList(listOfIds));
-        expect(result, equals(Left(ServerFailure())));
+        expect(result, equals(const Left(ServerFailure())));
       });
     });
     runTestOffline((){
       test("should return InternetFailure when isConnected == false", () async {
         final result = await repository.fetchEpisodesList(listOfIds);
         verifyZeroInteractions(mockEpisodeService);
-        expect(result, equals(Left(InternetFailure())));
+        expect(result, equals(const Left(InternetFailure())));
       });
     });
   });
