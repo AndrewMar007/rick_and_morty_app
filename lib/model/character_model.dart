@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:rick_and_morty_app/model/location_model.dart';
 
 class CharacterModel extends Equatable {
   final int id;
@@ -8,8 +9,8 @@ class CharacterModel extends Equatable {
   final String type;
   final String gender;
   final String image;
-  final Map<String, dynamic> location;
-  final List<dynamic> episode;
+  final LocationModel location;
+  final List<String> episode;
   final String url;
   final String created;
   const CharacterModel(
@@ -34,8 +35,8 @@ class CharacterModel extends Equatable {
         type: json["type"],
         gender: json["gender"],
         image: json["image"],
-        location: json["location"],
-        episode: json["episode"],
+        location: LocationModel.fromJson(json["location"]),
+        episode: List<String>.from(json["episode"]),
         url: json["url"],
         created: json["created"]);
   }

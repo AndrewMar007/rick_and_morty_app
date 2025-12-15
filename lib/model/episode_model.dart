@@ -5,7 +5,7 @@ class EpisodeModel extends Equatable {
   final String name;
   final String airDate;
   final String episode;
-  final List<dynamic> characters;
+  final List<String> characters;
   final String url;
   final String created;
 
@@ -23,7 +23,7 @@ class EpisodeModel extends Equatable {
         name: json["name"],
         airDate: json["air_date"],
         episode: json["episode"],
-        characters: json["characters"],
+        characters: List<String>.from(json["characters"]),
         url: json["url"],
         created: json["created"]);
   }

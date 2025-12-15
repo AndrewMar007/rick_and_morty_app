@@ -1,17 +1,16 @@
 class LocationModel {
-  int id;
-  String name;
-  String type;
-  String dimension;
-  List<String> residents;
-  String url;
-  String created;
-  LocationModel(
-      {required this.id,
-      required this.name,
-      required this.type,
-      required this.dimension,
-      required this.residents,
-      required this.url,
-      required this.created});
+  final String name;
+  final String url;
+  
+  const LocationModel({
+    required this.name,
+    required this.url,
+  });
+
+  factory LocationModel.fromJson(Map<String, dynamic> json) {
+    return LocationModel(
+      name: json["name"],
+      url: json["url"],
+    );
+  }
 }
