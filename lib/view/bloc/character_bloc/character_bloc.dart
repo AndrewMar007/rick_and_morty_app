@@ -3,7 +3,6 @@ import 'package:rick_and_morty_app/view/bloc/character_bloc/character_bloc_event
 import 'package:rick_and_morty_app/view/bloc/character_bloc/character_bloc_state.dart';
 import 'package:rick_and_morty_app/view_model/character_view_model/character_view_model.dart';
 
-import '../../../core/exceptions/failures.dart';
 import '../../../model/character_model.dart';
 
 const String serverFailureMessage = 'Server Failure';

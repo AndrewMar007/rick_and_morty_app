@@ -33,24 +33,31 @@ class CardWidget extends StatelessWidget {
                   height: size.height * 0.2,
                   width: size.width * 0.4,
                   child: ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(10.0),
-                        bottomLeft: Radius.circular(10.0)),
-                    child: Image.network(imageUrl, loadingBuilder:
-                        (BuildContext context, Widget child,
-                            ImageChunkEvent? loadingProgress) {
-                      if (loadingProgress == null) return child;
-                      return Center(
-                        child: CircularProgressIndicator(
-                          color: const Color.fromARGB(255, 110, 194, 225),
-                          value: loadingProgress.expectedTotalBytes != null
-                              ? loadingProgress.cumulativeBytesLoaded /
-                                  loadingProgress.expectedTotalBytes!
-                              : null,
-                        ),
-                      );
-                    }),
-                  )),
+                      borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(10.0),
+                          bottomLeft: Radius.circular(10.0)),
+                      child: imageUrl.isNotEmpty
+                          ? Image.network(imageUrl, loadingBuilder:
+                              (BuildContext context, Widget child,
+                                  ImageChunkEvent? loadingProgress) {
+                              if (loadingProgress == null) return child;
+                              return Center(
+                                child: CircularProgressIndicator(
+                                  color:
+                                      const Color.fromARGB(255, 110, 194, 225),
+                                  value: loadingProgress.expectedTotalBytes !=
+                                          null
+                                      ? loadingProgress.cumulativeBytesLoaded /
+                                          loadingProgress.expectedTotalBytes!
+                                      : null,
+                                ),
+                              );
+                            })
+                          : const Icon(
+                              Icons.image_not_supported_outlined,
+                              color: Colors.white,
+                              size: 30.0,
+                            ))),
               Padding(
                 padding: EdgeInsets.only(left: size.width * 0.04),
                 child: Column(

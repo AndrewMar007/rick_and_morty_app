@@ -170,7 +170,7 @@ class _MainScreenState extends State<MainScreen> {
 
                   return CardWidget(
                     size: size,
-                    text: item.name.isEmpty ? "No info": item.name,
+                    text: item.name.isEmpty ? "No info" : item.name,
                     imageUrl: item.image,
                     species: item.species.isEmpty ? "No info" : item.species,
                     status: item.status.isEmpty ? "No info" : item.status,
